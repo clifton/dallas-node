@@ -1,0 +1,10 @@
+{
+    "port": 4000
+  , "keys": {
+        "github": {
+            "client_id": "your app client id here"
+          , "secret": "your app secret here"
+        }
+      , "session": "random sequence of characters"
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "dallas-node",
+  "version": "0.0.1",
+  "author": "Clifton King <cliftonk@gmail.com>",
+  "description": "dallas node usergroup home page",
+  "contributors": [ 
+    {
+      "name": "Clifton King",
+      "email": "cliftonk@gmail.com"
+    } 
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "./server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clifton/dallas-node.git"
+  },
+  "dependencies" : {
+    "socket.io"   :  "~> 0.9.0",
+    "socket.io-client" :  "~> 0.9.0",
+    "express" :  "~> 2.5.8",
+    "jade": "~> 0.21.0",
+    "connect": "~> 2.0.2"
+  },
+  "engine": {
+    "node": ">= 0.4"
+  }
+}

@@ -1,0 +1,21 @@
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+
+div#chat-room {
+  border: 2px red;
+  height: 400px;
+  width: 600px;
+  overflow: auto;
+}
+
+div#chat-room span {
+  margin-right: 10px;
+  color:red;
+}
+
+div#chat-room .my_msg span {
+  color:blue;
+}

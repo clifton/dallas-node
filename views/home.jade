@@ -1,10 +1,12 @@
 - if (!everyauth.loggedIn)
   h2 Not Authenticated
-  #register
-    a(href='/auth/github', style='border: 0px') Sign in with Github
+  a(href='/auth/github', style='border: 0px') Sign in with Github
 - else
-  h3
-    a(href='/logout') Logout
   form#chat-form
     input#msg-box(type='text')
   #chat-room
+  ul
+    li
+      a(href='/logout') Logout
+    li
+      a(href='/slides/hello-world.html') Slides

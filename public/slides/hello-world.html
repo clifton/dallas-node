@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Hello World in Node.js</title>
+
+  <meta name="description" content="Node.js chat demo featuring socket.io">
+  <meta name="author" content="Clifton King">
+  <meta name="viewport" content="width=960">
+
+  <link rel="stylesheet" href="deck.core.css">
+  <link rel="stylesheet" href="horizontal-slide.css">
+  <link rel="stylesheet" href="slides.css">
+
+  <script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+  <container class="slide" id="title">
+    <h1>Hello World in Node.js</h1>
+  </container>
+
+  <container class="slide" id="author">
+    <h2>About me:</h2>
+
+    <ul>
+      <li>My name is Clifton (or Clif)</li>
+      <li>
+        Magician @
+        <a href="http://www.orgsync.com" target="_blank">OrgSync</a>
+      </li>
+
+      <li>Using node.js on production with ~950k users for ~ 18 months</li>
+      <ul>
+        <li>Image uploading / manipulation</li>
+        <li>Authentication proxy</li>
+        <li>Delivering results from worker queues</li>
+        <li>[redacted]</li>
+      </ul>
+
+      <li>Vitals:</li>
+      <ul>
+        <li><a href="http://twitter.com/cliftonk" target="_blank">@cliftonk</a></li>
+        <li><a href="http://github.com/clifton" target="_blank">github.com/clifton</a></li>
+        <li><a href="mailto:cliftonk@gmail.com">cliftonk@gmail.com</a></li>
+      </ul>
+    </ul>
+  </container>
+
+  <container class="slide" id="why-javascript">
+    <h1>Why JavaScript?</h1>
+  </container>
+
+  <container class="slide" id="js-is-known">
+    <h1>JavaScript is well-known</h1>
+  </container>
+
+  <container class="slide" id="js-is-fast">
+    <h1>JavaScript is <em>fast</em></h1>
+  </container>
+
+  <container class="slide" id="js-is-evented-2">
+    <h2>JavaScript is evented</h2>
+
+    <script src="https://gist.github.com/2041941.js"></script>
+  </container>
+
+  <container class="slide" id="boring-hello-world">
+    <h2>Hello World! in Node.js</h2>
+
+    <script src="https://gist.github.com/2042743.js"></script>
+    <p>Taken from <a href="http://nodejs.org/" target="_blank">nodejs.org</a></p>
+  </container>
+
+  <container class="slide" id="sync-vs-async">
+    <h2>What makes Node.js different?</h2>
+
+    <p>Synchronous with <a href="http://www.sinatrarb.com" target="_blank">Sinatra</a> (Ruby)</p>
+    <script src="https://gist.github.com/2042565.js"></script>
+
+    <p>Asynchronous with Node.js</p>
+    <script src="https://gist.github.com/2042703.js"></script>
+
+    <ul>
+      <li>Concurrent requests hitting the Ruby server must <em>wait in line</em></li>
+      <li>Concurrent requests hitting the node.js server don't need to!</li>
+    </ul>
+  </container>
+
+  <container class="slide" id="chat-overview">
+    <h2>The Event Loop</h2>
+
+    <img src="images/event_loop.png">
+    <p>Stolen from <a href="http://elegantcode.com/2011/07/05/taking-baby-steps-with-node-js-dont-block-the-event-loop/">elegantcode.com</a></p>
+  </container>
+
+  <container class="slide" id="chat-overview">
+    <h1>Chat</h1>
+  </container>
+
+  <container class="slide" id="fin">
+    <h2>Thanks!</h2>
+    <p>
+    <ul>
+      <li>
+        Contribute @
+        <a href="http://github.com/clifton/dallas-node" target="_blank">github.com/clifton/dallas-node</a>
+      </li>
+      <li>Next up: Persistence? API interactions?</li>
+    </ul>
+    <br/><br/><br/><br/>
+    <img src="images/joyentcloud.png">
+    <center>Dallas node server hosting courtesy of Joyent</center>
+  </container>
+
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script src="deck.core.js"></script>
+  <script>
+    $(function () {
+      $.deck(".slide");
+    });
+  </script>
+</body>
+</html>
+

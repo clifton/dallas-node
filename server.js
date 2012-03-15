@@ -3,10 +3,16 @@ var express = require("express")
   , everyauth = require("everyauth")
   , io = require("socket.io")
   , fs = require("fs")
-  , node_env = process.env["NODE_ENV"] || "development"
-  , config = JSON.parse(fs.readFileSync("./config/" + node_env + ".json"));
+  , node_env = process.env["NODE_ENV"] || "development";
 
-// everyauth.debug = node_env == "development"
+if (node_env === "production") {
+  // unfortunately needed for joyent deploys
+  var config_path = "/home/node/config/production.json";
+} else {
+  var config_path = "./config/" + node_env + ".json";
+}
+
+var config = JSON.parse(config_path);
 
 // we'll store session id's pointing to github usernames for authentication
 var users = {};

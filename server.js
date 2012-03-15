@@ -53,8 +53,8 @@ io.sockets.on('connection', function (socket) {
   
   if (!username) return;
 
-  socket.emit('set_username', username);
   socket.broadcast.emit('msg', {username: username, msg: "entered dallas node"});
+
   socket.on('msg', function (msg) {
     socket.broadcast.emit('msg', {username: username, msg: msg});
   });

@@ -12,7 +12,7 @@ if (node_env === "production") {
   var config_path = "./config/" + node_env + ".json";
 }
 
-var config = JSON.parse(config_path);
+var config = JSON.parse(fs.readFileSync(config_path));
 
 // we'll store session id's pointing to github usernames for authentication
 var users = {};

@@ -3,6 +3,7 @@ var express = require("express")
   , everyauth = require("everyauth")
   , io = require("socket.io")
   , fs = require("fs")
+  , redis = require('redis').createClient()
   , node_env = process.env["NODE_ENV"] || "development";
 
 if (node_env === "production") {
@@ -17,6 +18,7 @@ var config = JSON.parse(fs.readFileSync(config_path));
 // we'll store session id's pointing to github usernames for authentication
 var users = {};
 
+// you can comment out the following to bypass github auth
 everyauth.github
   .appId(config.keys.github.client_id)
   .appSecret(config.keys.github.secret)
@@ -49,14 +51,26 @@ app.get('/', function (req, res) {
 
 io.sockets.on('connection', function (socket) {
   var cookie = connect.utils.parseCookie(socket.handshake.headers.cookie)
+  // uncomment the following to assume a username when github
+  // connection fails or oauth is acting up!
+  // , username = 'clifton';
     , username = users[cookie['connect.sid']];
   
   if (!username) return;
 
+  redis.lrange('node:messages', -50, -1, function (err, payloads) {
+    for(var i = 0; i < payloads.length; ++i) {
+      var payload = JSON.parse(payloads[i]);
+      socket.emit('msg', payload);
+    }
+  });
+
   socket.broadcast.emit('msg', {username: username, msg: "entered dallas node"});
 
   socket.on('msg', function (msg) {
-    socket.broadcast.emit('msg', {username: username, msg: msg});
+    payload = {username: username, msg: msg}
+    redis.lpush('node:messages', JSON.stringify(payload));
+    socket.broadcast.emit('msg', payload);
   });
 });
 

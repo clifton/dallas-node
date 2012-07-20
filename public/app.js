@@ -5,7 +5,7 @@ $(function () {
 
   socket.on('msg', display_msg);
 
-  $('form#chat-form').submit(function () {
+  $('form#chat-form').submit(function (e) {
     var $this = $(this)
       , $input = $(this).find('input')
       , msg = $input.val();
@@ -13,7 +13,7 @@ $(function () {
     socket.emit('msg', msg);
     $input.val('');
     display_msg({username: 'me', msg: msg}).addClass('my_msg');
-    return false;
+    e.preventDefault();
   });
 
   function display_msg (data) {

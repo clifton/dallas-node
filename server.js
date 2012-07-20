@@ -68,7 +68,7 @@ io.sockets.on('connection', function (socket) {
   socket.broadcast.emit('msg', {username: username, msg: "entered dallas node"});
 
   socket.on('msg', function (msg) {
-    payload = {username: username, msg: msg}
+    var payload = {username: username, msg: msg}
     redis.lpush('node:messages', JSON.stringify(payload));
     socket.broadcast.emit('msg', payload);
   });
